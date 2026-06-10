@@ -1,0 +1,162 @@
+/*
+  ====================================
+  ESTILOS DOS CARDS DE PRODUTOS
+  ====================================
+  
+  Define o visual dos cards de produtos mostrados nas seções
+  Suporta tema claro/escuro e efeitos interativos ao hover
+  Inclui estilos para produtos em promoção
+*/
+
+/* ====================================
+   VARIÁVEIS DE TEMA
+   ==================================== */
+
+:root {
+    --primary-color: #8C5A3C;
+    --secondary-color: #F5EBE0;
+    --accent-color: #201B1B;
+    --accent-secondary-color: white;
+    --text-color: black;
+    --page-font: 'Montserrat', sans-serif;
+}
+
+/* Cores do tema escuro */
+.modoescuro {
+    --primary-color: #48312E;
+    --secondary-color: #201B1B;
+    --accent-color: #F5EBE0;
+    --text-color: white;
+    --accent-secondary-color: #9b655d;
+    --third-color: #ffc484;
+}
+
+/* ====================================
+   CARD DE PRODUTO
+   ==================================== */
+
+/* Container principal do card */
+.product-card {
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 1rem;
+    width: 12vw;
+    gap: 0.4rem;
+    background-color: var(--accent-secondary-color);
+    border-radius: 1rem;
+    /* Sombra sutil */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+}
+
+/* Card em modo escuro */
+.modoescuro .product-card {
+    background-color: var(--primary-color);
+}
+
+/* Efeito ao passar mouse no card */
+.product-card:hover {
+    /* Aumenta em 10% */
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* ====================================
+   INFORMAÇÕES DO PRODUTO
+   ==================================== */
+
+/* Container das informações do produto */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex-grow: 1;
+}
+
+/* Imagem do produto */
+.product-image {
+  width: 100%;
+  /* Mantém proporção quadrada */
+  aspect-ratio: 1;
+  /* Garante que a imagem cubra todo o espaço */
+  object-fit: cover;
+}
+
+/* Categoria do produto */
+.product-category {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Nome do produto */
+.product-name {
+    font-weight: 600;
+}
+
+/* Preço do produto */
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* ====================================
+   PRODUTOS EM PROMOÇÃO
+   ==================================== */
+
+/* Preço em vermelho para produtos em promoção */
+.product-sale .product-price {
+    color: #FD3737;
+}
+
+/* Preço original riscado para produtos em promoção */
+.product-sale .product-discount {
+    text-decoration: line-through;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+/* ====================================
+   RESPONSIVIDADE DOS CARDS
+   ==================================== */
+
+@media (max-width: 1024px) {
+    .product-card {
+        width: clamp(150px, 18vw, 220px);
+        padding: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+    }
+
+    .product-name {
+        font-size: 0.9rem;
+    }
+
+    .product-category {
+        font-size: 0.82rem;
+    }
+
+    .product-card:hover {
+        transform: scale(1.04);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: clamp(120px, 42vw, 160px);
+        padding: 0.6rem;
+        border-radius: 0.7rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .product-name {
+        font-size: 0.8rem;
+    }
+}
